@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Search.css";
 import SearchIcon from "@material-ui/icons/Search";
 import Field from "./Field";
@@ -12,7 +12,14 @@ const Search = () => {
   const [fields, setFields] = useState([]);
 
   const renderFields = fields.map((field) => {
-    return <Field title={field.title} description={field.body} input={input} />;
+    return (
+      <Field
+        key={field.id}
+        title={field.title}
+        description={field.body}
+        input={input}
+      />
+    );
   });
 
   const fetchData = async (input) => {
